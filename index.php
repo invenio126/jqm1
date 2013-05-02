@@ -5,6 +5,12 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1"> 
 	<link rel="stylesheet" href="http://code.jquery.com/mobile/1.2.1/jquery.mobile-1.2.1.min.css" />
 	<script src="http://code.jquery.com/jquery-1.8.3.min.js"></script>
+        <script>
+	$(document).bind("mobileinit", function(){
+	  $.mobile.pageLoadErrorMessage = 'Yikes, we broke the internet!';
+          $.mobile.defaultPageTransition = 'flow';
+	});
+	</script>
 	<script src="http://code.jquery.com/mobile/1.2.1/jquery.mobile-1.2.1.min.js">	</script>
 	
 	<script>
@@ -20,36 +26,45 @@
 </head> 
 <body> 
 
-<div data-role="page" id="one" data-theme="b">
+<div data-role="page" id="one" data-theme="b" data-title="Page Foo">
 
 	<div data-role="header">
-		<h1>My Title</h1>
+		<h1>My First Application</h1>
 	</div><!-- /header -->
 
 	<div data-role="content">	
-		<p>Hello world</p>	
-			<ul data-role="listview" data-inset="true" data-filter="true">
-				<li><a href="#">Acura</a></li>
-				<li><a href="#">Audi</a></li>
-				<li><a href="#">BMW</a></li>
-				<li><a href="#">Cadillac</a></li>
-				<li><a href="#">Ferrari</a></li>
-			</ul>
+		
+				<p><a href="account_list.php" data-role="button">Accounts</a></p>
+				<p><a href="contact_list.php" data-role="button">Contacts</a></p>
+				
+		
 			
-	<form>
+<!--	<form>
 		<label for="slider-0">Input slider:</label>
 		<input type="range" name="slider" id="slider-0" value="25" min="0" max="100"  />
-	</form>	
+	</form>	-->
 
 		<p><a href="#two" data-role="button">Show page "two"</a></p>
 	</div><!-- /content -->
+        
+        <div data-role="footer" data-id="foo1" data-position="fixed">
+	<div data-role="navbar">
+		<ul>
+			<li><a href="index.php">Home</a></li>
+			<li><a href="account_add.php">Add Account</a></li>
+			<li><a href="contact_add.php">Add Contact</a></li>
+			
+		</ul>
+	</div><!-- /navbar -->
+</div><!-- /footer -->
 </div><!-- /page -->
 
 <!-- Start of second page: #two -->
-<div data-role="page" id="two" data-theme="a">
+<div data-role="page" id="account" data-theme="a">
 
 	<div data-role="header">
-		<h1>Two</h1>
+		<h1>Account List</h1>
+                <a href="#one" data-icon="home" data-iconpos="notext" data-direction="reverse">Home</a>
 	</div><!-- /header -->
 
 	<div data-role="content" data-theme="a">	
@@ -66,6 +81,12 @@
 </div><!-- /page two -->
 
 
+<div data-role="page" id="contact" data-theme="a">
+    <div data-role="header">
+		<h1>Contact List</h1>
+                <a href="#one" data-icon="home" data-iconpos="notext" data-direction="reverse">Home</a>
+	</div><!-- /header -->
+    </div>
 
 
 </body>
